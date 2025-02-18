@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicias Muy Gourmet</title>
+    <link rel="stylesheet" type="text/css" href="style/menu.css">
+</head>
+<body>
+
+
+<div class="menu-cabecero">
+    <button id="add-menu-to-cart">Agregar mi menú al carrito</button>
+    <h1>Pide a domicilio</h1>
+    <div class="cart-icon" id="cart-icon">
+        <img src="images/carrito.png" alt="Icono de carrito de compras" width="30">
+        <div class="cart-count" id="cart-count">0</div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn" id="profileButton">Perfil</button>
+        <div id="dropdown-content" class="dropdown-content">
+            <button id="loginButton">Login</button>
+            <button id="registerButton">Registro</button>
+            <div id="loginForm" class="dropdown-content-form">
+              <form id="loginFormElement">
+                  <label for="loginEmail">Correo electrónico:</label>
+                  <input type="email" placeholder="Email" id="loginEmail" required>
+                  <label for="loginPassword">Contraseña:</label>
+                  <input type="password" placeholder="Contraseña" id="loginPassword" required>
+                  <input type="submit" value="Iniciar Sesión">
+              </form>
+            </div>
+            <div id="registerForm" class="dropdown-content-form">
+                <form id="registrationForm">
+                    <label for="firstName">Correo electrónico:</label>
+                    <input type="text" placeholder="Nombre" id="firstName" required>
+      
+                    <label for="lastName">Correo electrónico:</label>
+                    <input type="text" placeholder="Apellidos" id="lastName" required>
+      
+                    <label for="email-registro">Correo electrónico:</label>
+                    <input type="email" placeholder="Email" id="email-registro" required>
+      
+                    <label for="password-registro">Correo electrónico:</label>
+                    <input type="password" placeholder="Contraseña" id="password-registro" required>
+      
+                    <label for="confirmPassword-registro">Correo electrónico:</label>
+                    <input type="password" placeholder="Confirmar Contraseña" id="confirmPassword-registro" required>
+      
+                    <input type="submit" value="Registrar">
+                </form>
+            </div>
+            <div id="userDetails" class="user-details hidden">
+              <span id="userName"></span>
+              <span id="userPoints"></span>
+              <button id="logoutButton">Cerrar Sesion</button>
+              
+            </div>
+            <button id="historialPedidos">Historial de pedidos</button>
+            <div id="historialDesplegable" class="hidden"></div>
+        </div>
+      </div>
+</div>
+
+
+<div class="menu-contenido">
+    <div class="plato" onclick="mostrarIngredientes('mariscos')">
+      <p>Plato de mariscos - 10€</p>
+      <img src="images/Plato_de_Mariscos.png" alt="Nuestro plato de mariscos">
+      <div id="ingredientes-mariscos" class="ingredientes oculto">
+          <p>Ingredientes: Gambas, langostas, ostras, salsa de mariscos, limón, algas marinas, aceite de oliva virgen extra.</p>
+          <p>Alérgenos: Mariscos (gambas, langostas, ostras), salsa de mariscos.</p>
+
+          <div class="ingredientes-adicionales">
+              <p>Añadir ingredientes:</p>
+              <label><input type="checkbox" value="Ajo extra"> Ajo extra</label><br>
+              <label><input type="checkbox" value="Perejil fresco"> Perejil fresco</label><br>
+          </div>
+          <button class="add-to-cart" data-plato="mariscos" data-name="Plato de mariscos" data-price="10">Añadir al carrito</button>
+          <button class="add-to-menu" data-plato="mariscos" data-name="Plato de mariscos">Añadir a mi menú personalizado</button>      
+        </div>
+    </div>
+
+    <div class="plato" onclick="mostrarIngredientes('aves')">
+      <p>Creacion de aves y trufas - 10€</p>
+      <img src="images/Creacion_de_Aves_y_Trufas.png" alt="Nuestro plato de creacion de aves y trufas">
+      <div id="ingredientes-aves" class="ingredientes oculto">
+          <p>Ingredientes: Pechuga de pato, láminas de trufa negra, salsa de vino tinto, puré de castañas, brotes de hierbas frescas.</p>
+          <p>Alérgenos:  Posibles trazas en salsas y aderezos.</p>
+  
+          <div class="ingredientes-adicionales">
+              <p>Añadir ingredientes:</p>
+              <label><input type="checkbox" value="Champiñones"> Champiñones</label><br>
+              <label><input type="checkbox" value="Cebolla caramelizada"> Cebolla caramelizada</label><br>
+          </div>
+          <button class="add-to-cart" data-plato="aves" data-name="Creacion de aves y trufas" data-price="10">Añadir al carrito</button>
+          <button class="add-to-menu" data-plato="aves" data-name="Creacion de aves y trufas">Añadir a mi menú personalizado</button>
+      </div>
+    </div>
+  
+    <div class="plato" onclick="mostrarIngredientes('delicia')">
+      <p>Delicias de caviar y blinis - 10€</p>
+      <img src="images/Delicia_de_Caviar_y_Blinis.png" alt="Nuestro plato de delicias de caviar y blinis">
+      <div id="ingredientes-delicia" class="ingredientes oculto">
+          <p>Ingredientes: Blinis, caviar Beluga, crema agria, cebollino, eneldo, huevos de codorniz, aceite de trufa.</p>
+          <p>Alérgenos: Blinis (trigo/gluten), huevos de codorniz, aceite de trufa (posibles trazas de frutos secos).</p>
+  
+          <div class="ingredientes-adicionales">
+              <p>Añadir ingredientes:</p>
+              <label><input type="checkbox" value="Salmón ahumado"> Salmón ahumado</label><br>
+              <label><input type="checkbox" value="Crema de limón"> Crema de limón</label><br>
+          </div>
+          <button class="add-to-cart" data-plato="delicia" data-name="Delicias de caviar y blinis" data-price="10">Añadir al carrito</button>
+          <button class="add-to-menu" data-plato="delicia" data-name="Delicias de caviar y blinis">Añadir a mi menú personalizado</button>
+      </div>
+    </div>
+  
+    <div class="plato" onclick="mostrarIngredientes('escultura')">
+      <p>Escultura de carne y vegetales - 10€</p>
+      <img src="images/Escultura_de_Carne_y_Vegetales.png" alt="Nuestro plato de escultura de carne y vegetales">
+      <div id="ingredientes-escultura" class="ingredientes oculto">
+          <p>Ingredientes: Filete de res, espárragos trigueros, zanahorias baby, puré de papa trufado, reducción de balsámico, aceite de hierbas.</p>
+          <p>Alérgenos: Posibles trazas en salsas y aderezos.</p>
+  
+          <div class="ingredientes-adicionales">
+              <p>Añadir ingredientes:</p>
+              <label><input type="checkbox" value="Champiñones"> Champiñones</label><br>
+              <label><input type="checkbox" value="Queso azul"> Queso azul</label><br>
+          </div>
+          <button class="add-to-cart" data-plato="escultura" data-name="Escultura de carne y vegetales" data-price="10">Añadir al carrito</button>
+          <button class="add-to-menu" data-plato="escultura" data-name="Escultura de carne y vegetales">Añadir a mi menú personalizado</button>
+      </div>
+    </div>
+  
+    <div class="plato" onclick="mostrarIngredientes('ensalada')">
+      <p>Ensalada Gourmet con flores comestibles - 10€</p>
+      <img src="images/Ensalada_Gourmet_con_Flores_Comestibles.png" alt="Nuestra ensalada Gourmet con flores comestibles">
+      <div id="ingredientes-ensalada" class="ingredientes oculto">
+          <p>Ingredientes: Lechugas orgánicas, flores comestibles, vinagreta de frambuesa, nueces caramelizadas, queso feta, tomates cherry, aceitunas kalamata.</p>
+          <p>Alérgenos: Nueces caramelizadas (frutos secos), queso feta (lácteos).</p>
+  
+          <div class="ingredientes-adicionales">
+              <p>Añadir ingredientes:</p>
+              <label><input type="checkbox" value="Aguacate"> Aguacate</label><br>
+              <label><input type="checkbox" value="Pollo a la parrilla"> Pollo a la parrilla</label><br>
+          </div>
+          <button class="add-to-cart" data-plato="ensalada" data-name="Ensalada Gourmet con flores comestibles" data-price="10">Añadir al carrito</button>
+          <button class="add-to-menu" data-plato="ensalada" data-name="Ensalada Gourmet con flores comestibles">Añadir a mi menú personalizado</button>
+      </div>
+    </div>
+  
+    <div class="plato" onclick="mostrarIngredientes('sopa')">
+      <p>Sopa de aromas exóticos - 10€</p>
+      <img src="images/Sopa_de_Aromas_Exoticos.png" alt="Nuestra sopa de aromas exóticos">
+      <div id="ingredientes-sopa" class="ingredientes oculto">
+          <p>Ingredientes: Caldo de coco, limoncillo, pollo, champiñones Shiitake, cilantro, leche de coco, guindillas, jengibre.</p>
+          <p>Alérgenos: Posibles sensibilidades a ingredientes específicos.</p>
+  
+          <div class="ingredientes-adicionales">
+              <p>Añadir ingredientes:</p>
+              <label><input type="checkbox" value="Tofu"> Tofu</label><br>
+              <label><input type="checkbox" value="Fideos de arroz"> Fideos de arroz</label><br>
+          </div>
+          <button class="add-to-cart" data-plato="sopa" data-name="Sopa de aromas exóticos" data-price="10">Añadir al carrito</button>
+          <button class="add-to-menu" data-plato="sopa" data-name="Sopa de aromas exóticos">Añadir a mi menú personalizado</button>
+      </div>
+    </div>
+  
+    <div class="plato" onclick="mostrarIngredientes('pastel')">
+      <p>Pastel de chocolate y frutas del Bosque - 10€</p>
+      <img src="images/Pastel_de_Chocolate_y_Frutas_del_Bosque.png" alt="Nuestro pastel de chocolate y frutas del Bosque">
+      <div id="ingredientes-pastel" class="ingredientes oculto">
+          <p>Ingredientes: Bizcocho de chocolate, mousse de chocolate negro, frutas del bosque, sirope de frambuesa, hojas de menta, virutas de chocolate blanco.</p>
+          <p>Alérgenos: Bizcocho de chocolate (trigo/gluten, huevo), mousse de chocolate negro (lácteos, posibles frutos secos), virutas de chocolate blanco (lácteos).</p>
+  
+          <div class="ingredientes-adicionales">
+              <p>Añadir ingredientes:</p>
+              <label><input type="checkbox" value="Nueces"> Nueces</label><br>
+              <label><input type="checkbox" value="Crema batida extra"> Crema batida extra</label><br>
+          </div>
+          <button class="add-to-cart" data-plato="pastel" data-name="Pastel de chocolate y frutas del Bosque" data-price="10">Añadir al carrito</button>
+          <button class="add-to-menu" data-plato="pastel" data-name="Pastel de chocolate y frutas del Bosque">Añadir a mi menú personalizado</button>
+      </div>
+    </div>
+  
+    <div class="plato" onclick="mostrarIngredientes('postre-queso')">
+      <p>Creación Artística de Postre de Queso - 10€</p>
+      <img src="images/Creacion_Artistica_de_Postre_de_Queso.png" alt="Nuestra creación Artística de Postre de Queso">
+      <div id="ingredientes-postre-queso" class="ingredientes oculto">
+          <p>Ingredientes: Queso mascarpone, base de galleta, compota de frutas rojas, gelatina de champagne, frutas frescas, crujiente de caramelo, hojas de menta fresca.</p>
+          <p>Alérgenos: Queso mascarpone (lácteos), base de galleta (trigo/gluten, posibles frutos secos).</p>
+
+          <div class="ingredientes-adicionales">
+              <p>Añadir ingredientes:</p>
+              <label><input type="checkbox" value="Virutas de chocolate"> Virutas de chocolate</label><br>
+              <label><input type="checkbox" value="Sirope de arce"> Sirope de arce</label><br>
+          </div>
+          <button class="add-to-cart" data-plato="postre-queso" data-name="Creación Artística de Postre de Queso" data-price="10">Añadir al carrito</button>
+          <button class="add-to-menu" data-plato="postre-queso" data-name="Creación Artística de Postre de Queso">Añadir a mi menú personalizado</button>
+      </div>
+    </div>
+</div>
+
+<script src="script/menu.js"></script>
+<script src="script/ingredientes.js"></script>
+<script src="script/registro.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delicias Muy Gourmet</title>
+<link rel="stylesheet" type="text/css" href="style/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti/dist/confetti.browser.min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.10/index.global.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.10/index.global.min.js'></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+<body>
+<button aria-label="Abrir menú" class="hamburger" onclick="abrirMenu()" onkeypress="abrirMenu()">☰</button>
+<div class="navegacion-movil" id="mobileMenu" onclick="cerrarMenu()" onkeypress="cerrarMenu()">
+  <button aria-label="Cerrar menú" class="boton_cerrar_hamburger">Cerrar</button>
+  <a class="enlace_menu_hamburger" href="#top-images" id="link1">Pagina Inicio</a>
+  <a class="enlace_menu_hamburger" href="#historia" id="link2">Historia</a>
+  <a class="enlace_menu_hamburger" href="#menu" id="link3">Menu</a>
+  <a class="enlace_menu_hamburger" href="#reservas" id="link4">Reservas</a>
+  <a class="enlace_menu_hamburger" href="menu.html" id="link5">Pedidos</a>
+  <a class="enlace_menu_hamburger" href="#galeria" id="link6">Galeria</a>
+  <a class="enlace_menu_hamburger" href="#locales" id="link7">Locales</a>
+  <a class="enlace_menu_hamburger" href="#contacto" id="link8">Contacto</a>
+</div>
+
+
+
+<div class="top-images" id = "top-images">
+    <img class="logo" src="images/logotipo.png" alt="Logotipo de Delicias Muy Gourmet">
+    <img class="banner" src="images/Banner_2.png" alt="Banner promocional de Delicias Muy Gourmet">
+</div>
+
+<div class="dropdown">
+  <button class="dropbtn" id="profileButton">Perfil</button>
+  <div id="dropdown-content" class="dropdown-content">
+      <button id="loginButton">Login</button>
+      <button id="registerButton">Registro</button>
+      <div id="loginForm" class="dropdown-content-form">
+        <form id="loginFormElement">
+            <label for="loginEmail">Correo electrónico:</label>
+            <input type="email" placeholder="Email" id="loginEmail" required>
+            <label for="loginPassword">Contraseña:</label>
+            <input type="password" placeholder="Contraseña" id="loginPassword" required>
+            <input type="submit" value="Iniciar Sesión">
+        </form>
+      </div>
+      <div id="registerForm" class="dropdown-content-form">
+          <form id="registrationForm">
+              <label for="firstName">Correo electrónico:</label>
+              <input type="text" placeholder="Nombre" id="firstName" required>
+
+              <label for="lastName">Correo electrónico:</label>
+              <input type="text" placeholder="Apellidos" id="lastName" required>
+
+              <label for="email-registro">Correo electrónico:</label>
+              <input type="email" placeholder="Email" id="email-registro" required>
+
+              <label for="password-registro">Correo electrónico:</label>
+              <input type="password" placeholder="Contraseña" id="password-registro" required>
+
+              <label for="confirmPassword-registro">Correo electrónico:</label>
+              <input type="password" placeholder="Confirmar Contraseña" id="confirmPassword-registro" required>
+
+              <input type="submit" value="Registrar">
+          </form>
+      </div>
+      <div id="userDetails" class="user-details hidden">
+        <span id="userName"></span>
+        <span id="userPoints"></span>
+        <button id="logoutButton">Cerrar Sesion</button>
+        
+      </div>
+      <button id="historialPedidos">Historial de pedidos</button>
+      <div id="historialDesplegable" class="hidden"></div>
+  </div>
+</div>
+
+<div class="pagina_inicio" id="pagina_inicio">
+  <div class="column_p1 column_p1-1">
+    <div class = "icono">
+        <a href="#top-images"><img src="images/icono_inicio.png" alt="Inicio"></a>
+    </div>
+    <div class = "icono">
+      <a href="#historia"><img src="images/icono_historia.png" alt="Historia"></a>
+    </div>
+    <div class = "icono">
+      <a href="#menu"><img src="images/icono_menu.png" alt="IconoMenu"></a>
+    </div>
+    <div class = "icono">
+      <a href="#reservas"><img src="images/icono_reserva.png" alt="Reserva"></a>
+    </div>
+    <div class = "icono">
+      <a href="menu.html"><img src="images/icono_pedidos.png" alt="Pedidos"></a>
+    </div>
+    <div class = "icono">
+      <a href="#galeria"><img src="images/icono_galeria.png" alt="Galeria"></a>
+    </div>
+    <div class = "icono">
+      <a href="#locales"><img src="images/icono_locales.png" alt="Locales"></a>
+    </div>
+    <div class = "icono">
+      <a href="#contacto"><img src="images/icono_contacto.png" alt="Contacto"></a>
+    </div>
+  </div>
+  <div class="column_p1 column_p1-2">
+    <div class="reservation-form">
+      <form action="/reservar" method="post">
+        <label for="name-reserva-inicio">Nombre:</label>
+        <input type="text" id="name-reserva-inicio" name="name-reserva-inicio">
+
+        <label for="email-reserva-inicio">Correo electrónico:</label>
+        <input type="email" id="email-reserva-inicio" name="email-reserva-inicio">
+
+        <label for="date-reserva-inicio">Fecha:</label>
+        <input type="date" id="date-reserva-inicio" name="date-reserva-inicio">
+        
+        <label for="time-reserva-inicio">Hora:</label>
+        <input type="time" id="time-reserva-inicio" name="time-reserva-inicio">
+        
+        <label for="people-reserva-inicio">Número de personas:</label>
+        <input type="number" id="people-reserva-inicio" name="people-reserva-inicio" min="0">
+        
+        <label for="comments-reserva-inicio">Comentarios:</label>
+        <textarea id="text" name="comments-reserva-inicio"></textarea>
+        
+        <input type="button" value="Reservar" class="button" id="btnReservar1">
+      </form>
+    <div class="boton-valoraciones">
+        <a href="valoraciones.html" class="button">Mira nuestras Valoraciones y Comentarios</a>
+    </div>
+    </div>
+    <div id="reservationModal1" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>Elige tu local</h2>
+        </div>
+        <div class="modal-body">
+          <p>Selecciona el local para tu reserva:</p>
+          <button id="localRozas" class="modal-button">Local Las Rozas</button>
+          <button id="localMatas" class="modal-button">Local Las Matas</button>
+        </div>
+        <div class="modal-footer">
+          <h3>Delicias Muy Gourmet</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column_p1 column_p1-3">
+    <h2>Disfruta de nuestros platos en la comodidad de tu hogar</h2>
+    <a href="menu.html" class="button">Pedir</a>
+    <div class="seccion-calendario">
+      <h2>Calendario de Eventos</h2>
+      <p>Descubre nuestros próximos eventos especiales.</p>
+      <div id="calendario-eventos"></div> <!-- Contenedor para el calendario -->
+    </div>
+  </div>
+</div>
+<div id="eventModal" class="modal">
+  <div class="modal-content">
+      <span class="close1">&times;</span>
+      <h2 id="eventTitle">Titulo:</h2>
+      <p id="eventDescription"></p>
+  </div>
+</div>
+
+
+<div class="historia" id="historia">
+  <div class="historia_cabecero"> 
+      <h1>Nuestra Historia</h1> 
+  </div>
+  <div class="historia_contenido"> 
+      <div class="column_p2 column_p2-1">
+          <div class="text-section">
+              <p>Fundado en 1985, el Restaurante Estrella comenzó como un pequeño y 
+              humilde establecimiento en el corazón de la ciudad. Su fundador, 
+              Don Alberto Gómez, un apasionado de la gastronomía, soñó con crear 
+              un espacio donde los comensales pudieran disfrutar de la auténtica 
+              cocina local en un ambiente cálido y acogedor.</p>
+              <figure>
+                <img src="images/img_1_historia.png" alt="Restaurante original con Don Alberto Gómez">
+                <figcaption>Imagen de Don Alberto Gómez en el restaurante original</figcaption>
+              </figure>
+          </div>
+          
+          <div class="text-section">
+              <p>A medida que los años pasaban, la dedicación y el amor por la comida que Don Alberto 
+              y su equipo ponían en cada platillo se hicieron notar. En 1995, tras una década de 
+              funcionamiento, el Restaurante Estrella fue galardonado con su primera estrella Michelin, 
+              un reconocimiento que cimentó su reputación no solo a nivel local, sino también nacional.</p>
+              <figure>
+                <img src="images/img_2_historia.png" alt="Premiación con la primera estrella Michelin">
+                <figcaption>Imagen de la primera estrella Michelin recibida</figcaption>
+              </figure>
+          </div>
+      </div>
+      <div class="column_p2 column_p2-2">
+          <div class="text-section">
+              <p>En el año 2000, con la incorporación de la hija de Don Alberto, Sofía Gómez, al equipo, 
+              el restaurante dio un giro innovador. Sofía, habiendo estudiado gastronomía en París, 
+              introdujo técnicas culinarias modernas sin perder la esencia de los sabores tradicionales 
+              que siempre caracterizaron al Restaurante Estrella.</p>
+              <figure>
+                <img src="images/img_3_historia.png" alt="Sofía Gómez trabajando en la cocina">
+                <figcaption>Imagen de Sofía Gómez en la cocina</figcaption>
+              </figure>
+          </div>
+          
+          <div class="text-section">
+              <p>Hoy, casi cuatro décadas después de su fundación, el Restaurante Estrella no solo ha conservado su estrella Michelin, 
+              sino que ha añadido dos más a su colección. Con un equipo de chefs de talla mundial y un compromiso inquebrantable 
+              con la excelencia, seguimos sirviendo platillos que cuentan la historia de nuestra tradición culinaria, evocando recuerdos 
+              y creando nuevos momentos inolvidables para nuestros comensales.</p>
+              <figure>
+                <img src="images/img_4_historia.png" alt="Vista actual del restaurante con su equipo de chefs">
+                <figcaption>Imagen actual del restaurante con el equipo de chefs</figcaption>
+              </figure>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="menu" id="menu">
+  <div class="menu-cabecero">
+    <h1>Explora nuestro menú</h1>
+    <div class="contador-calorias">
+      <button id="botonContadorCalorias">Contador de Calorías</button>
+      <div id="desplegableCalorias" class="desplegable-oculto">
+        <table>
+            <tr>
+              <td>Objetivo</td>
+              <td><label for="objetivoCalorias">Calorías </label><input type="number" id="objetivoCalorias" name="calorias"></td>
+              <td><label for="objetivoProteinas">Proteínas (g)</label><input type="number" id="objetivoProteinas" name="proteinas"></td>
+              <td><label for="objetivoHidratos">Hidratos de Carbono (g)</label><input type="number" id="objetivoHidratos" name="hidratos"></td>
+              <td><label for="objetivoGrasas">Grasas (g)</label><input type="number" id="objetivoGrasas" name="grasas"></td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  
+  
+  </div>
+  
+  <div class="menu-contenido">
+    <div class="plato" tabindex="0" onclick="mostrarIngredientes('mariscos')" onkeypress="mostrarIngredientes('mariscos')">
+        <p>Plato de mariscos - 10€</p>
+        <img src="images/Plato_de_Mariscos.png" alt="Nuestro plato de mariscos">
+        <div id="ingredientes-mariscos" class="ingredientes oculto">
+            <p>Ingredientes: Gambas, langostas, ostras, salsa de mariscos, limón, algas marinas, aceite de oliva virgen extra.</p>
+            <p>Alérgenos: Mariscos (gambas, langostas, ostras), salsa de mariscos.</p>
+            <button class="add-to-counter" data-plato="mariscos" data-name="Plato de mariscos" data-calorias="250" data-proteinas="30" data-hidratos="5" data-grasas="10">Añadir al contador</button>
+        </div>
+    </div>
+    <div class="plato" tabindex="0" onclick="mostrarIngredientes('aves')" onkeypress="mostrarIngredientes('aves')">
+        <p>Creacion de aves y trufas- 10€</p>
+        <img src="images/Creacion_de_Aves_y_Trufas.png" alt="Nuestro plato de creacion de aves y trufas">
+        <div id="ingredientes-aves" class="ingredientes oculto">
+            <p>Ingredientes: Pechuga de pato, láminas de trufa negra, salsa de vino tinto, puré de castañas, brotes de hierbas frescas.</p>
+            <p>Alérgenos: Posibles trazas en salsas y aderezos.</p>
+            <button class="add-to-counter" data-plato="aves" data-name="Creacion de aves y trufas" data-calorias="300" data-proteinas="35" data-hidratos="15" data-grasas="20">Añadir al contador</button>
+        </div>
+    </div>
+    <div class="plato" tabindex="0" onclick="mostrarIngredientes('delicia')" onkeypress="mostrarIngredientes('delicia')">
+        <p>Delicias de caviar y blinis - 10€</p>
+        <img src="images/Delicia_de_Caviar_y_Blinis.png" alt="Nuestro plato de delicias de caviar y blinis">
+        <div id="ingredientes-delicia" class="ingredientes oculto">
+            <p>Ingredientes: Blinis, caviar Beluga, crema agria, cebollino, eneldo, huevos de codorniz, aceite de trufa.</p>
+            <p>Alérgenos: Blinis (trigo/gluten), huevos de codorniz, aceite de trufa (posibles trazas de frutos secos).</p>
+            <button class="add-to-counter" data-plato="delicia" data-name="Delicias de caviar y blinis" data-calorias="350" data-proteinas="25" data-hidratos="30" data-grasas="22">Añadir al contador</button>
+        </div>
+    </div>
+    <div class="plato" tabindex="0" onclick="mostrarIngredientes('escultura')" onkeypress="mostrarIngredientes('escultura')">
+        <p>Escultura de carne y vegetales - 10€</p>
+        <img src="images/Escultura_de_Carne_y_Vegetales.png" alt="Nuestro plato de escultura de carne y vegetales">
+        <div id="ingredientes-escultura" class="ingredientes oculto">
+            <p>Ingredientes: Filete de res, espárragos trigueros, zanahorias baby, puré de papa trufado, reducción de balsámico, aceite de hierbas.</p>
+            <p>Alérgenos: Posibles trazas en salsas y aderezos.</p>
+            <button class="add-to-counter" data-plato="escultura" data-name="Escultura de carne y vegetales" data-calorias="400" data-proteinas="40" data-hidratos="20" data-grasas="25">Añadir al contador</button>
+        </div>
+    </div>
+    <div class="plato" tabindex="0" onclick="mostrarIngredientes('ensalada')" onkeypress="mostrarIngredientes('ensalada')">
+        <p>Ensalada Gourmet con flores comestibles - 10€</p>
+        <img src="images/Ensalada_Gourmet_con_Flores_Comestibles.png" alt="Nuestra ensalada Gourmet con flores comestibles">
+        <div id="ingredientes-ensalada" class="ingredientes oculto">
+            <p>Ingredientes: Lechugas orgánicas, flores comestibles, vinagreta de frambuesa, nueces caramelizadas, queso feta, tomates cherry, aceitunas kalamata.</p>
+            <p>Alérgenos: Nueces caramelizadas (frutos secos), queso feta (lácteos).</p>
+            <button class="add-to-counter" data-plato="ensalada" data-name="Ensalada Gourmet con flores comestibles" data-calorias="200" data-proteinas="10" data-hidratos="15" data-grasas="12">Añadir al contador</button>
+        </div>
+    </div>
+    <div class="plato" tabindex="0" onclick="mostrarIngredientes('sopa')" onkeypress="mostrarIngredientes('sopa')">
+        <p>Sopa de aromas exóticos- 10€</p>
+        <img src="images/Sopa_de_Aromas_Exoticos.png" alt="Nuestra sopa de aromas exóticos">
+        <div id="ingredientes-sopa" class="ingredientes oculto">
+            <p>Ingredientes: Caldo de coco, limoncillo, pollo, champiñones Shiitake, cilantro, leche de coco, guindillas, jengibre.</p>
+            <p>Alérgenos: Posibles sensibilidades a ingredientes específicos.</p>
+            <button class="add-to-counter" data-plato="sopa" data-name="Sopa de aromas exóticos" data-calorias="180" data-proteinas="15" data-hidratos="20" data-grasas="9">Añadir al contador</button>
+        </div>
+    </div>
+    <div class="plato" tabindex="0" onclick="mostrarIngredientes('pastel')" onkeypress="mostrarIngredientes('pastel')">
+        <p>Pastel de chocolate y frutas del Bosque - 10€</p>
+        <img src="images/Pastel_de_Chocolate_y_Frutas_del_Bosque.png" alt="Nuestro pastel de chocolate y frutas del Bosque">
+        <div id="ingredientes-pastel" class="ingredientes oculto">
+            <p>Ingredientes: Bizcocho de chocolate, mousse de chocolate negro, frutas del bosque, sirope de frambuesa, hojas de menta, virutas de chocolate blanco.</p>
+            <p>Alérgenos: Bizcocho de chocolate (trigo/gluten, huevo), mousse de chocolate negro (lácteos, posibles frutos secos), virutas de chocolate blanco (lácteos).</p>
+            <button class="add-to-counter" data-plato="pastel" data-name="Pastel de chocolate y frutas del Bosque" data-calorias="450" data-proteinas="8" data-hidratos="50" data-grasas="25">Añadir al contador</button>
+        </div>
+    </div>
+    <div class="plato" tabindex="0" onclick="mostrarIngredientes('postre-queso')" onkeypress="mostrarIngredientes('postre-queso')">
+        <p>Creación Artística de Postre de Queso - 10€</p>
+        <img src="images/Creacion_Artistica_de_Postre_de_Queso.png" alt="Nuestra creación Artística de Postre de Queso">
+        <div id="ingredientes-postre-queso" class="ingredientes oculto">
+            <p>Ingredientes: Queso mascarpone, base de galleta, compota de frutas rojas, gelatina de champagne, frutas frescas, crujiente de caramelo, hojas de menta fresca.</p>
+            <p>Alérgenos: Queso mascarpone (lácteos), base de galleta (trigo/gluten, posibles frutos secos).</p>
+            <button class="add-to-counter" data-plato="postre-queso" data-name="Creación Artística de Postre de Queso" data-calorias="420" data-proteinas="12" data-hidratos="45" data-grasas="20">Añadir al contador</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="reservas" id="reservas">
+  <div class="reservas_cabecero">
+    <h1>Reserva tu mesa en simples pasos</h1>
+  </div>
+  <div class="reservas-contenedor">
+    <form action="/reservar" method="post">
+      <label for="name">Nombre:</label>
+      <input type="text" id="text" name="name">
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email">
+
+      <label for="date">Fecha:</label>
+      <input type="date" id="date" name="date">
+      
+      <label for="time">Hora:</label>
+      <input type="time" id="time" name="time">
+      
+      <label for="people">Número de personas:</label>
+      <input type="number" id="people" name="people" min="0">
+      
+      <label for="comments">Comentarios:</label>
+      <textarea id="comments" name="comments"></textarea>
+      
+      <input type="button" value="Reservar" class="button" id="btnReservar2">
+    </form>
+  </div>
+
+  <div id="reservationModal2" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Elige tu local</h2>
+      </div>
+      <div class="modal-body">
+        <p>Selecciona el local para tu reserva:</p>
+        <button id="localRozas1" class="modal-button">Local Las Rozas</button>
+        <button id="localMatas1" class="modal-button">Local Las Matas</button>
+      </div>
+      <div class="modal-footer">
+        <h3>Delicias Muy Gourmet</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="galeria" id="galeria">
+  <div class="galeria_cabecero">
+    <h1>Momentos en Delicias Gourmet</h1>
+  </div>
+  
+  <div class="galeria_contenedor">
+    <div class="galeria_foto">
+        <img src="images/Momento_1.png" alt="Clientes disfrutando en nuestro restaurante">
+    </div>
+    <div class="galeria_foto">
+        <img src="images/Momento_2.png" alt="Celebración especial en Delicias Gourmet">
+    </div>
+    <div class="galeria_foto">
+        <img src="images/Momento_3.png" alt="Interior del restaurante Delicias Gourmet">
+    </div>
+    <div class="galeria_foto">
+        <img src="images/Momento_4.png" alt="Selección de platos gourmet">
+    </div>
+</div>
+
+</div>
+
+<div class="locales" id="locales">
+  <div class="locales_cabecero">
+    <h1>Nuestros locales</h1>
+  </div>
+  <div class="locales_contenedor">
+    <div class="map-column">
+      <p> Haga click para ver la ubicación del restaurante en Las Rozas</p>
+      <div id="mapLasRozas" class="map-link" style="height: 300px;"></div>
+      
+      <p> Haga click para ver la ubicación del restaurante en Las Matas</p>
+      <div id="mapLasMatas" class="map-link" style="height: 300px;"></div>
+    </div>    
+    <div class="info-column">
+      <div class="local-info">
+        <h2>Local Las Rozas</h2>
+        <p>Dirección: Calle Andrés Segovia, 25, Las Rozas de Madrid</p>
+        <p>Horario: 12:30 a 00, Lunes a Domingo</p>
+        <p>Teléfono: 656565656</p>
+      </div>
+      <div class="local-info">
+        <h2>Local Las Matas</h2>
+        <p>Dirección: Calle de Goya, 13, Las Matas</p>
+        <p>Horario: 13 a 01, Martes a Domingo</p>
+        <p>Teléfono: 696352654</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="contacto" id="contacto">
+  <div class="contacto_cabecero">
+    <h1>Contacto</h1>
+  </div>
+  <div class="contacto_contenedor">
+    <div class="formulario">
+      <h2>Formulario de contacto</h2>
+      <label for="contactName">Nombre:</label>
+      <input type="text" id="contactName" placeholder="Nombre">
+      <label for="contactEmail">Correo electrónico:</label>
+      <input type="email" id="contactEmail" placeholder="Correo electrónico">
+      <label for="contactSubject">Asunto:</label>
+      <input type="text" id="contactSubject" placeholder="Asunto">
+      <label for="contactMessage">Mensaje:</label>
+      <textarea id="contactMessage" placeholder="Mensaje"></textarea>
+      <button type="button" id="sendContact">Enviar</button>
+    </div>    
+    <div class="info">
+      <h2>Información de contacto</h2>
+      <p>Teléfono: 656565656 (Las Rozas) y 696352654 (Las Matas)</p>
+      <p>Correo electrónico: deliciasmuygourmet@gmail.com</p>
+      <h3>Redes Sociales:</h3>
+      <div class="redes_sociales">
+        <img src="images/tiktok.png" alt="TikTok">
+        <a href="https://www.tiktok.com/@delicias_muygourmet">delicias_muygourmet</a>
+      </div>
+      <div class="redes_sociales">
+        <img src="images/instagram.jpg" alt="Instagram">
+        <a href="https://www.instagram.com/delicias_muy_gourmet/">delicias_muy_gourmet</a>
+      </div>
+    </div>
+  </div>
+  <div class="faq_cabecero">
+    <h2>Preguntas Frecuentes</h2>
+  </div>
+  <div class="faq_cabecero">
+    <h2>Preguntas Frecuentes</h2>
+  </div>
+  <div class="faq_contenedor">
+    <!-- FAQ Item 1 -->
+    <div class="faq_item">
+      <h3 class="faq_pregunta">¿Necesito hacer reserva para cenar en el restaurante?</h3>
+      <p class="faq_respuesta">Recomendamos hacer reservas, especialmente durante los fines de semana y días festivos, para garantizar su mesa.</p>
+    </div>
+    <!-- FAQ Item 2 -->
+    <div class="faq_item">
+      <h3 class="faq_pregunta">¿Ofrecen opciones vegetarianas en el menú?</h3>
+      <p class="faq_respuesta">Sí, tenemos una variedad de platos vegetarianos y podemos adaptar ciertos platos a sus preferencias.</p>
+    </div>
+    <!-- FAQ Item 3 -->
+    <div class="faq_item">
+      <h3 class="faq_pregunta">¿Tienen opciones para personas con alergias alimentarias?</h3>
+      <p class="faq_respuesta">Sí, por favor informe a nuestro personal sobre sus alergias y haremos lo posible por acomodar sus necesidades.</p>
+    </div>
+    <!-- FAQ Item 4 -->
+    <div class="faq_item">
+      <h3 class="faq_pregunta">¿El restaurante es accesible para personas con movilidad reducida?</h3>
+      <p class="faq_respuesta">Sí, nuestro restaurante está equipado para recibir a clientes con movilidad reducida, incluyendo rampas y baños adaptados.</p>
+    </div>
+    <!-- FAQ Item 5 -->
+    <div class="faq_item">
+      <h3 class="faq_pregunta">¿Puedo organizar un evento privado en su restaurante?</h3>
+      <p class="faq_respuesta">Por supuesto, contáctenos para más detalles sobre la organización de eventos privados y personalizados en nuestro espacio.</p>
+    </div>
+  </div>
+  <div class="boletin-informativo">
+    <h2>Suscríbete a Nuestro Boletín</h2>
+    <p>Recibe las últimas noticias y ofertas especiales directamente en tu bandeja de entrada.</p>
+    <form>
+      <label for="emailBoletin">Correo electrónico:</label>
+      <input type="email" id="emailBoletin" name="email" placeholder="Tu correo electrónico" required>
+      <button type="button" class="btn-boletin">Suscribirse</button>
+    </form>
+  </div>  
+</div>
+
+
+
+
+<script src="script/reserva.js"></script>
+<script src="script/contacto.js"></script>
+<script src="script/menu_hamburguesa.js"></script>
+<script src="script/ingredientes.js"></script>
+<script src="script/faq.js"></script>
+<script src="script/registro.js"></script>
+<script src="script/calendario.js"></script>
+<script src="script/mapas.js"></script>
+<script src="script/calorias.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+
+
+</body>
+</html>

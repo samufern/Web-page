@@ -1,0 +1,144 @@
+.contenedor-valoraciones {
+background-color: #f2f2f2;
+padding: 20px;
+margin: 20px auto;
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+width: 90%; /* Aumento del ancho */
+max-width: 800px; /* Tamaño máximo más grande */
+}
+
+.campo-nombre input {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+border-radius: 5px;
+border: 1px solid #ddd;
+}
+
+.estrellas-valoracion {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    font-size: 40px; /* Tamaño de estrella más grande */
+    border: none;
+}
+
+.leyenda {
+    position: absolute; /* Posicionamiento absoluto para el legend */
+    top: -10px; /* Ajusta según sea necesario */
+    left: 0; /* Alinea a la izquierda */
+    background: white; /* Color de fondo para el texto */
+    padding: 0 5px; /* Relleno para evitar que el texto toque los bordes */
+}
+
+
+.estrella {
+    color: #000;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.estrellas-valoracion input[type="radio"] {
+    display: none;
+}
+
+.estrellas-valoracion label:hover,
+.estrellas-valoracion label:hover ~ label,
+.estrellas-valoracion input[type="radio"]:checked ~ label {
+    color: #ffc107;
+}
+
+/* Invertimos el orden de las estrellas en el CSS para que el llenado sea de izquierda a derecha */
+.estrellas-valoracion {
+    direction: rtl;
+}
+
+.estrellas-valoracion label {
+    direction: ltr;
+}
+
+.campo-comentario textarea {
+width: 100%;
+padding: 10px;
+margin-top: 10px;
+border-radius: 5px;
+border: 1px solid #ddd;
+min-height: 100px;
+box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+resize: vertical;
+}
+
+.contenedor-valoraciones button {
+    background-color: #741b1b; /* Color de fondo */
+    color: white;              /* Color del texto */
+    padding: 15px 32px;        /* Espaciado interno */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 26px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contenedor-valoraciones button:hover {
+    background-color: #9b1818; /* Color al pasar el mouse */
+    transform: scale(1.1);
+}
+
+.contenedor-comentarios {
+background-color: #f8f8f8;
+padding: 20px;
+margin: 20px auto;
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+width: 80%;
+max-width: 600px;
+}
+
+.contenedor-comentarios h2 {
+text-align: center;
+color: #333;
+}
+
+.comentario-individual {
+border-bottom: 1px solid #ddd;
+padding: 10px 0;
+}
+
+.comentario-individual:last-child {
+border-bottom: none;
+}
+
+.comentario-autor {
+background-color: lightgray;
+font-weight: bold;
+color: black;
+}
+
+.comentario-fecha {
+font-size: 12px;
+color: black;
+}
+
+.comentario-texto {
+margin-top: 5px;
+color: black;
+}
+
+.contenedor-comentarios:empty::before {
+content: "No hay comentarios aún. ¡Sé el primero en dejar uno!";
+display: block;
+text-align: center;
+padding: 20px;
+}
+
+@media (max-width: 768px) {
+.contenedor-valoraciones, .contenedor-comentarios {
+    width: 90%;
+    margin: 10px auto;
+}
+}

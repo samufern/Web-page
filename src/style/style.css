@@ -1,0 +1,1401 @@
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
+/*------------------------------------------*/
+/* Dropdown */
+.button {
+  background-color: #741b1b; /* Color de fondo */
+  color: white;              /* Color del texto */
+  padding: 15px 32px;        /* Espaciado interno */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #9b1818; /* Color al pasar el mouse */
+  transform: scale(1.1);
+}
+.dropdown {
+  position: absolute;
+  top: 0.5em;
+  right: 1em;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #741b1b; /* Color de fondo */
+  color: white;              /* Color del texto */
+  padding: 15px 32px;        /* Espaciado interno */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropbtn:hover {
+  background-color: #9b1818; /* Color al pasar el mouse */
+  transform: scale(1.1);
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: lightgray;
+  min-width: 12em;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 8px; /* Added rounded border */
+  transition: display 0.5s ease-in-out;
+}
+
+/* Dropdown Content Button */
+.dropdown-content button {
+  background-color: #741b1b; /* Color de fondo */
+  color: white;              /* Color del texto */
+  padding: 15px 32px;        /* Espaciado interno */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content button:hover {
+  background-color: #9b1818; /* Color al pasar el mouse */
+  transform: scale(1.1);
+}
+
+/* Dropdown Hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+  right: 10px;
+}
+
+/* Dropdown Content Form */
+.dropdown-content-form {
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+}
+
+/* Dropdown Content Form Input */
+.dropdown-content-form input {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 8px; /* Added rounded border */
+}
+
+/* Dropdown Content Form Show */
+.dropdown-content-form.show {
+  display: block;
+}
+
+/* User Details */
+.user-details {
+  padding: 0 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-between;
+  width: 10vw;
+}
+
+/* User Details Span */
+.user-details span {
+  text-align: left;
+  margin-right: 10px;
+  padding-top: 0.5em;
+  font-size: 16px;
+}
+
+/* Logout Button */
+#logoutButton {
+  text-align: center;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+#logoutButton:hover {
+  background-color: #45a049;
+}
+
+/* Hidden */
+.hidden {
+  display: none;
+}
+
+
+.boton-valoraciones {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.boton-valoraciones a {
+  text-decoration: none;
+}
+
+.boton-valoraciones button {
+  background-color: #741b1b; /* Color de fondo */
+  color: white;             /* Color del texto */
+  padding: 15px 32px;       /* Espaciado interno */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.boton-valoraciones button:hover {
+  background-color: #9b1818; /* Color al pasar el mouse */
+  transform: scale(1.1);
+}
+
+#btnReservar1 {
+  font-size: 20px;
+}
+
+.reservation-form input[type="name-reserva-inicio"],
+.reservation-form input[type="email-reserva-inicio"],
+.reservation-form input[type="date-reserva-inicio"],
+.reservation-form input[type="time-reserva-inicio"],
+.reservation-form input[type="people-reserva-inicio"],
+.reservation-form input[type="comments-reserva-inicio"],
+.reservation-form textarea {
+  width: 100%; 
+  padding: 15px; 
+  margin-bottom: 20px; 
+  border: 1px solid #ddd; 
+  border-radius: 4px; 
+  font-size: 14px; 
+}
+
+/* Estilo básico para el contenedor del calendario */
+.seccion-calendario {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  margin-top: 7%;
+}
+
+/* Personalizaciones para FullCalendar */
+.fc-toolbar-title {
+  font-size: 24px;
+  color: #333;
+}
+
+.fc-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.fc-button:hover {
+  background-color: #45a049;
+}
+
+.fc-daygrid-event {
+  background-color: #741b1b;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.fc-daygrid-event:hover {
+  background-color: #b53030;
+}
+
+.fc-highlight {
+  background-color: #f0f0f0;
+}
+
+.fc-day-today {
+  background-color: #e8f5e9;
+}
+
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+}
+
+.close1 {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close1:hover,
+.close1:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.fc-event {
+  cursor: pointer;
+}
+
+/*----------------------------------------*/
+
+
+
+.hamburger {
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none; 
+}
+
+.navegacion-movil {
+  display: none; 
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: left 0.3s;
+  align-items: center;
+}
+
+.navegacion-movil.abierto {
+  left: 0;
+  background-color: #f2f2f2;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.pagina_inicio {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 80vh;
+  width: 100%;
+}
+.column_p1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icono a, .icono{
+  width: 100%; 
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.icono img {
+  width: 60%; /* Ajusta el ancho de la imagen al de su contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  display: flex;
+  margin-top: 0.1em;
+}
+
+.column_p1-1 {
+  position: fixed;
+  justify-content: start;
+  left: 0;
+  bottom: 0;
+  width: 5%;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  height: 100vh;
+  z-index: 100;
+}
+.column_p1-2 {
+  width: 45%;
+  margin-left: 8%;
+  display: flex; 
+  justify-content: start;
+  flex-direction: column;
+}
+
+.column_p1-3 {
+  width: 45%;
+  margin-left: auto;
+  margin-top: 5%; 
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+}
+
+.column_p1-3 h2 {
+  width: 90%;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.column_p1-3 a button {
+  background-color: #741b1b; /* Color de fondo */
+  color: white;             /* Color del texto */
+  padding: 15px 32px;       /* Espaciado interno */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.column_p1-3 a button:hover {
+  background-color: #9b1818; /* Color al pasar el mouse */
+  transform: scale(1.1);
+}
+
+
+.reservation-form {
+  background-color: #f8f8f8; 
+  margin-top: 5%;
+  padding: 60px; 
+  border-radius: 50px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+  max-width: auto;
+  width: 100%;
+}
+
+.reservation-form label {
+  display: block; 
+  margin-bottom: 10px; 
+  font-weight: bold; 
+  font-size: 16px; 
+}
+
+.reservation-form input[type="name"],
+.reservation-form input[type="text"],
+.reservation-form input[type="email"],
+.reservation-form input[type="date"],
+.reservation-form input[type="time"],
+.reservation-form input[type="number"],
+.reservation-form textarea {
+  width: 100%; 
+  padding: 15px; 
+  margin-bottom: 20px; 
+  border: 1px solid #ddd; 
+  border-radius: 4px; 
+  font-size: 14px; 
+}
+
+.reservation-form textarea {
+  height: 150px; 
+}
+
+.reservation-form input[type="button"] {
+  background-color: #741b1b; /* Color de fondo */
+  color: white;              /* Color del texto */
+  padding: 15px 32px;        /* Espaciado interno */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reservation-form input[type="button"]:hover {
+  background-color: #9b1818; /* Color al pasar el mouse */
+  transform: scale(1.1);
+}
+
+.top-images {
+  margin-left: 8%;
+  margin-right: 2%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 20vh; /* Altura del contenedor basada en el alto de la ventana */
+}
+
+.logo, .banner {
+  max-width: 100%; /* Ajuste máximo de ancho */
+  height: 100%; /* Mantiene la relación de aspecto */
+  padding-right: 5%;
+}
+
+
+
+
+/*------------------------ Estilo pagina historia --------------------*/
+
+.historia {
+  display: flex;
+  flex-direction: column;
+  padding-left: 6%;
+  min-height: 100vh;
+  margin-top: 5%;
+  width: 90%;
+}
+
+.historia_cabecero h1{
+  text-align: center; /* Centra el texto del cabecero */
+  width: 100%; 
+}
+
+.historia_contenido{
+  display: flex;
+}
+
+/* Contenedor que engloba las dos columnas */
+.column_p2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+   
+}
+
+.column_p2-1, .column_p2-2 {
+  width: 50%;
+  display: flex; 
+  justify-content: start;
+  flex-direction: column;
+  
+}
+
+.text-section {
+  display: flex;
+  margin-bottom: 40px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+.text-section h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+.text-section p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.text-section img {
+  width: 60%;
+}
+
+
+/* -------------------estilos menu--------------------*/
+
+.menu {
+  padding-left: 6%;
+  min-height: 100vh;
+  width: 90%;
+  padding-bottom: 6%;
+  position: relative;
+}
+
+.menu-cabecero { 
+  text-align: center; 
+}
+.menu-contenido { 
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+}
+.plato { 
+  width: 23%;
+  text-align: center; 
+  margin-right: 2em;
+  margin-bottom: 5em;
+}
+.plato img { 
+  width: 100%; 
+  height: auto; 
+  border-radius: 10px; 
+}
+
+.ingredientes.oculto {
+  display: none;
+}
+
+.ingredientes {
+  display: block;
+  position: absolute;
+  background: white;
+  border: 1px solid #000;
+  padding: 10px;
+  width: 19%;
+  z-index: 100;
+}
+
+.contador-calorias {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.contador-calorias button {
+  background-color: #741b1b; /* Color de fondo */
+  color: white;              /* Color del texto */
+  padding: 15px 32px;        /* Espaciado interno */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contador-calorias button:hover {
+  background-color: #9b1818; /* Color al pasar el mouse */
+  transform: scale(1.1);
+}
+
+/* Estilo para el desplegable de calorías */
+#desplegableCalorias {
+  position: absolute;
+  right: 0;
+  top: 40px; /* Ajusta esta altura según sea necesario */
+  background-color: lightgrey; /* Fondo gris claro */
+  width: auto; /* Ancho del desplegable */
+}
+
+/* Clase para mostrar el desplegable */
+.desplegable-visible {
+  display: block;
+}
+
+.desplegable-oculto {
+  display: none;
+}
+
+/* Estilo para evitar que los labels hagan wrap (saltos de línea) */
+label {
+  white-space: nowrap;
+}
+
+/* Estilo para los botones, incluyendo el botón de eliminar en cada fila */
+button {
+  margin: 5px;
+  padding: 5px;
+}
+
+
+
+/*------------------ Estilo Reservas ---------------------*/
+
+.reservas {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.reservas_cabecero h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.reservas-contenedor form { 
+  background-color: #f8f8f8; 
+  padding: 70px; 
+  border-radius: 10px; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+  margin: 20px auto; 
+  width: 80%; 
+}
+
+.reservas-contenedor label { 
+  margin-bottom: 15px; 
+  font-weight: bold; 
+  font-size: 20px;
+}
+
+.reservas-contenedor input[type="name"],
+.reservas-contenedor input[type="text"],
+.reservas-contenedor input[type="email"],
+.reservas-contenedor input[type="date"],
+.reservas-contenedor input[type="time"],
+.reservas-contenedor input[type="number"],
+.reservas-contenedor textarea {
+  padding: 20px; 
+  margin-bottom: 25px; 
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px; 
+  width: 100%;
+}
+
+.reservas-contenedor textarea {
+  height: 150px; 
+}
+
+.reservas-contenedor .button {
+  background-color: #741b1b; /* Color de fondo */
+  color: white;              /* Color del texto */
+  padding: 15px 32px;        /* Espaciado interno */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reservas-contenedor .button:hover {
+  background-color: #9b1818; /* Color al pasar el mouse */
+  transform: scale(1.1);
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparente */
+}
+
+.modal-content {
+  position: relative;
+  background-color: #ffffff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: 40%; /* Ajustar según necesidades */
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  text-align: right;
+}
+
+.modal-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.modal-button:hover {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+#graciasMensaje {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+#graciasMensajeContacto {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+/* -------------------- Estilo Galeria -------------------*/
+
+.galeria{
+  padding-left: 4%;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.galeria_cabecero { 
+  text-align: center; 
+}
+
+.galeria_contenedor { 
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+}
+.galeria_foto { 
+  width: 42%;
+  margin: 3em;
+}
+.galeria_foto img { 
+  width: 100%;
+  height: auto; 
+  border-radius: 5px; 
+}
+
+
+/*------------------- Estilos Locales -------------*/
+.locales{
+  padding-left: 6%;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.locales_cabecero { 
+  text-align: center; 
+}
+
+.locales_contenedor { 
+  display: flex; 
+  justify-content: center; 
+  align-items: flex-start; 
+  margin-top: 20px; 
+}
+.map-column { 
+  width: 50%; 
+}
+
+.map-column p{
+  text-align: center;
+}
+
+.info-column { 
+  width: 40%; 
+  margin-left: 6%; 
+  margin-right: 2%;
+}
+.local-info { 
+  margin-bottom: 5em; 
+}
+
+.map-link {
+  height: 700px; /* O el alto que prefieras */
+  margin: 10px 0;
+  border-radius: 15px; /* Añade bordes redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); /* Añade una sombra suave */
+  overflow: hidden; /* Asegura que los bordes redondeados se aplican al mapa */
+}
+
+/* Estilo para el popup de Leaflet */
+.leaflet-popup-content-wrapper {
+  background: #f5f5f5; /* Cambia el color de fondo del popup */
+  border-radius: 10px; /* Añade bordes redondeados al popup */
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4); /* Añade una sombra al popup */
+}
+
+.leaflet-popup-tip-container {
+  display: none; /* Oculta la punta del popup */
+}
+
+
+.foto_ubicacion {
+  max-width: 100%;
+  max-height: 50vh;
+  border: 3px solid #ddd;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Agregado efecto de transición para la sombra */
+  }
+  
+.map-link:hover .foto_ubicacion {
+transform: scale(1.05);
+border-color: #333;
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
+}
+
+#mapLasRozas {
+  margin-bottom: 60px; /* Ajusta este valor a la separación que prefieras */
+}
+
+
+/* ------------------------Estilo contacto ---------------------------*/
+
+/* Estilo existente para la sección de contacto */
+.contacto {
+  padding-left: 6%;
+  min-height: 100vh;
+  width: 90%;
+}
+
+.contacto_cabecero { 
+  text-align: center; 
+  margin-bottom: 30px; /* Añadido espaciado debajo del encabezado */
+}
+
+.contacto_contenedor { 
+  display: flex; 
+  justify-content: space-between; 
+  margin-bottom: 30px; /* Añadido espaciado entre contenedores */
+}
+
+.formulario, .info { 
+  width: 48%; 
+}
+
+.formulario input, .formulario textarea { 
+  width: 95%; 
+  margin-bottom: 15px; /* Aumentado el margen inferior */
+}
+
+.formulario button { 
+  display: flex;
+  padding: 10px 20px; 
+  align-items: center;
+  margin-top: 15px; /* Añadido margen superior */
+}
+
+.info { 
+  padding: 20px; 
+  background-color: #f2f2f2; 
+  border-radius: 5px; 
+}
+
+.redes_sociales { 
+  display: flex; 
+  align-items: center; 
+  margin-bottom: 10px; 
+}
+
+.redes_sociales img { 
+  margin-right: 10px;
+  width: 10%;
+}
+
+.redes_sociales a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Estilos adicionales para la sección de FAQ */
+.faq_cabecero {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.faq_contenedor {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0; /* Añadido espaciado superior e inferior */
+}
+
+.faq_item {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  margin-bottom: 15px; /* Aumentado el margen inferior */
+  padding: 10px;
+}
+
+.faq_pregunta {
+  margin: 0;
+  color: #1d64af;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.faq_respuesta {
+  display: none;
+  padding-top: 10px;
+}
+
+/* Estilos para el boletín informativo */
+/* Estilos adicionales para el boletín informativo */
+.boletin-informativo {
+  text-align: center;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  margin: 20px 6%;
+  margin-top: 60px;
+  position: relative; 
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
+}
+
+.boletin-informativo h2 {
+  color: #000000;
+  margin-bottom: 15px;
+  text-transform: uppercase; 
+  letter-spacing: 2px; 
+}
+
+.boletin-informativo p {
+  margin-bottom: 20px;
+  font-size: 18px; 
+}
+
+.boletin-informativo form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.boletin-informativo input[type="email"] {
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  flex-grow: 1;
+  font-size: 16px; /* Aumenta el tamaño de la fuente */
+}
+
+.boletin-informativo .btn-boletin {
+  background-color: #741b1b; /* Color de fondo */
+  color: white;              /* Color del texto */
+  padding: 15px 32px;        /* Espaciado interno */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.boletin-informativo .btn-boletin:hover {
+  background-color: #9b1818; /* Color al pasar el mouse */
+  transform: scale(1.1);
+}
+
+/* Estilo para el ícono */
+.boletin-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: #ff5e00;
+  cursor: pointer;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 1200px) and (min-width:768px){
+
+  .galeria_foto{
+    width: 90%;
+  }
+
+
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  /* Styles for Tablets and Desktops */
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .user-details{
+    width: 90%;
+  }
+
+  .hamburger {
+    position: fixed;
+    display: flex; 
+    align-items: flex-end; 
+  }
+
+  .navegacion-movil.abierto {
+    display: block;
+    width: 100%;
+    padding: 1em;
+  }
+
+  .enlace_menu_hamburger{
+    display: block;
+    text-decoration: none;
+    padding: 2em 0;
+    margin: 0.5em 0;
+    color: #000;
+    background-color: lightgray;
+    width: 95%;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .enlace_menu_hamburger:hover{
+    text-decoration: none;
+  }
+
+  .boton_cerrar_hamburger {
+    background-color: lightgray; /* Color de fondo rojo */
+    border: none; /* Sin bordes */
+    padding: 10px 20px; /* Relleno para hacerlo más grande */
+    text-align: center; /* Texto centrado */
+    text-decoration: none; /* Sin decoración de texto */
+    display: inline-block; /* Display inline-block */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 4px 2px; /* Margen para separarlo de otros elementos */
+    cursor: pointer; /* Cursor tipo pointer para indicar que es clickeable */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+
+  .top-images {
+    flex-direction: column;
+    padding-bottom: 2em;
+    height: auto;
+    margin-left: 1%;
+    margin-right: 4%;
+  }
+
+  .logo {
+    height: auto;
+    margin-bottom: 2em;
+  }
+
+  .banner{
+    width:auto;
+    height: auto;
+  }
+
+
+
+
+  .pagina_inicio {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 80vh;
+    width: 100vw;
+  }
+  
+  .column_p1-1 {
+    display: none;
+    position: fixed;
+    width: 0%; /* No ocupa espacio */
+    flex-direction: column;
+  }
+
+  .column_p1-2 {
+    width: 100vw; /* Ocupa el ancho completo */
+    display: flex; 
+    justify-content: start;
+    flex-direction: column;
+  }
+  
+  .column_p1-3 {
+    width: 100%; /* Ocupa el ancho completo */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin-top: 0%;
+    flex-direction: column;
+    text-align: center;
+    margin-left: 0%;
+    padding: 0%;
+  }
+  
+  .column_p1-3 h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+  }
+  
+  .column_p1-3 a button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-size: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .column_p1-3 a button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+  }
+
+  .reservation-form {
+    background-color: #f8f8f8; 
+    padding: 60px; 
+    border-radius: 50px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    width: 100%; /* Ocupa el ancho completo */
+  }
+
+  .reservation-form input[type="name"],
+  .reservation-form input[type="text"],
+  .reservation-form input[type="email"],
+  .reservation-form input[type="date"],
+  .reservation-form input[type="time"],
+  .reservation-form input[type="number"],
+  .reservation-form textarea {
+    width: 80%; 
+    padding: 15px; 
+    margin-bottom: 20px; 
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+    font-size: 14px; 
+    margin-right: 5%;
+  }
+
+  .reservation-form textarea {
+    height: 150px; 
+  }
+  
+  .reservation-form input[type="button"] {
+    width: 80%; 
+    padding: 15px; 
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    border-radius: 4px; 
+    cursor: pointer;
+    margin-top: 20px; 
+    font-size: 16px;
+  }
+
+  .menu {
+    padding: 0% 5%;
+    align-items: center;
+    min-height: 100vh;
+    width: 90%;
+  }
+
+  .plato {
+    width: 80%;
+    text-align: center;
+    align-items: center;
+    margin-right: 0em;
+    margin-bottom: 0em;
+    padding-bottom: 1em;
+  }
+
+  .reservas_cabecero{
+    text-align: center;
+    padding-left: 3%;
+  }
+
+  .reservas-contenedor form {
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 0px 5%;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 0;
+    width: 80%;
+  }
+
+  .galeria_foto {
+    width: 70%;
+    margin: 3em;
+  }
+  
+  .historia_contenido, .menu-contenido, .galeria_contenedor, .contacto_contenedor {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .column_p2-1, .column_p2-2 {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+  }
+
+  
+
+
+  .locales_contenedor {
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .locales {
+    padding-left: 3%;
+    min-height: 0vh;
+    width: 100%;
+  }
+
+  .map-column, .info-column {
+    width: 100%;
+  }
+
+  .contacto_contenedor {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+
+  .contacto {
+    align-items: center;
+    padding: 0%;
+    min-height: 0vh;
+    width: 100%;
+    padding-bottom: 5%;
+  }
+
+
+
+
+  .formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    width: 100%;
+  }
+
+  .info {
+    margin: 1%;
+    padding: 0%;
+    width: 90%;
+  }
+
+  .info h2, h3{
+    text-align: center;
+  }
+
+  .formulario input, .formulario textarea {
+    align-items: center;
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+
+
+  .redes_sociales img { 
+    margin-right: 10px;
+    width: 10%;
+  }
+
+}

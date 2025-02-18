@@ -1,0 +1,19 @@
+Se ha hecho lo siguiente:
+
+Pagina de inicio
+
+Barra lateral fija a la izquierda con iconos
+
+Historia
+
+Reservas
+
+Pagina de pedidos
+
+Pagina de pago con codigo de DESCUENTO "NUEVO25" que descuenta un 25% del importe original
+
+Galeria
+
+Locales
+
+Contacto

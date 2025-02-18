@@ -1,0 +1,303 @@
+.menu {
+    padding-left: 6%;
+  }
+
+.menu-cabecero {
+  display: flex;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center; /* Alinea los elementos verticalmente en el centro */
+  padding: 10px; /* Espacio interno dentro del cabecero */
+  width: 100%; /* Asegura que el cabecero ocupe toda la anchura */
+}
+
+.menu-cabecero h1 {
+  margin: 0 auto; /* Auto-márgenes para centrar el título */
+  text-align: center; /* Centra el texto del título */
+}
+
+#add-menu-to-cart {
+  background-color: #0056b3; /* Color verde para el botón */
+  color: white;
+  padding: 10px 20px; /* Ajusta el relleno para cambiar el tamaño */
+  margin: 20px 0; /* Margen para separarlo de otros elementos */
+  border: none;
+  cursor: pointer;
+  width: auto; /* Puedes cambiar esto a un valor fijo si lo prefieres */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 1em; /* Tamaño del texto en el botón */
+  display: inline-block; /* Hace que el botón se ajuste al contenido */
+  text-align: center; /* Asegura que el texto esté centrado */
+}
+
+#add-menu-to-cart:hover {
+  background-color: #050520; /* Color más oscuro al pasar el ratón */
+}
+
+.cart-icon {
+  right: 1.5em;
+  position: relative; /* Establece una posición relativa para el contenedor del carrito */
+  display: flex;
+  justify-content: center; /* Centra el contenido del carrito horizontalmente */
+  align-items: center; /* Alinea el contenido del carrito verticalmente */
+}
+
+.cart-count {
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%; /* Hace que el contador sea circular */
+  padding: 2px 6px;
+  font-size: 0.8em;
+  position: absolute; /* Posiciona el contador de manera absoluta en relación con su contenedor relativo */
+  top: -10px;
+  right: -10px;
+  transform: translate(10%, -10%); /* Ajusta la posición del contador para que se sitúe correctamente encima del ícono */
+}
+.menu-contenido { 
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+}
+.plato { 
+  width: 23%;
+  text-align: center; 
+  margin-right: 2em;
+  margin-bottom: 5em;
+}
+.plato img { 
+  width: 100%; 
+  height: auto; 
+  border-radius: 10px; 
+}
+
+.cart-dropdown {
+  display: none;
+  position: absolute;
+  top: 3em; /* Posición debajo del icono del carrito */
+  right: 0;
+  background-color: lightgray;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  border: 1px solid #000;
+}
+
+.cart-dropdown p {
+  margin: 0;
+  padding: 5px 0;
+}
+
+.cart-dropdown h3 {
+  margin-top: 0;
+}
+
+.remove-item {
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.remove-item:hover {
+  background-color: darkred;
+}
+
+#checkout-button {
+  background-color: #4CAF50; /* Color verde */
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+#checkout-button:hover {
+  background-color: #45a049;
+}
+
+.ingredientes.oculto {
+display: none;
+}
+
+.ingredientes {
+display: block;
+position: absolute;
+background: white;
+border: 1px solid #000;
+padding: 10px;
+width: 19%;
+z-index: 100;
+}
+
+.add-to-menu {
+background-color: #007bff; /* Un color distintivo para estos botones */
+color: white;
+padding: 5px 10px;
+margin-top: 5px;
+border: none;
+cursor: pointer;
+border-radius: 4px;
+font-size: 0.9em;
+}
+
+.add-to-menu:hover {
+background-color: #0056b3; /* Color al pasar el ratón */
+}
+
+/* Estilo para el botón de "Agregar mi menú al carrito" */
+#add-menu-to-cart {
+  background-color: #741b1b; /* Color verde para el botón */
+  color: white;
+  padding: 10px 20px; /* Ajusta el relleno para cambiar el tamaño */
+  margin: 20px 0; /* Margen para separarlo de otros elementos */
+  border: none;
+  cursor: pointer;
+  width: auto; /* Puedes cambiar esto a un valor fijo si lo prefieres */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 1em; /* Tamaño del texto en el botón */
+  display: inline-block; /* Hace que el botón se ajuste al contenido */
+  text-align: center; /* Asegura que el texto esté centrado */
+}
+
+#add-menu-to-cart:hover {
+  background-color: #050520; /* Color más oscuro al pasar el ratón */
+}
+
+
+/*------------------------------------------*/
+
+.dropdown {
+position: absolute;
+top: 0.5em;
+right: 4em;
+}
+
+
+.dropbtn {
+  background-color: #741b1b; /* Color de fondo */
+  color: white;              /* Color del texto */
+  padding: 15px 32px;        /* Espaciado interno */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropbtn:hover{
+  background-color: #9b1818; /* Color al pasar el mouse */
+  transform: scale(1.1);
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: lightgray;
+min-width: 12em;
+}
+
+.dropdown-content button{
+background-color: #741b1b;
+color: white;
+padding: 1em 1.5em;
+margin: 1em;
+text-decoration: none;
+display: block;
+border: none;
+text-align: left;
+width: 85%;
+}
+
+.dropdown-content button:hover{
+  background-color: #9b1818; /* Color al pasar el mouse */
+  transform: scale(1.1);
+  }
+
+
+
+.dropdown:hover .dropdown-content {
+display: block;
+right: 10px;
+}
+
+.dropdown-content-form {
+display: none;
+flex-direction: column;
+padding: 10px;
+}
+
+.dropdown-content-form input {
+margin-bottom: 10px;
+padding: 5px;
+}
+
+.dropdown-content-form.show {
+display: block;
+}
+
+.user-details {
+padding: 0 15px; /* Espaciado interno */
+border-radius: 8px; /* Bordes redondeados */
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+margin-top: 20px; /* Espacio arriba */
+display: flex; /* Alineación horizontal */
+flex-direction: column;
+align-items: left; /* Alineación vertical */
+justify-content: space-between; /* Distribución del espacio */
+width: 10vw; /* Ancho máximo */
+}
+
+.user-details span {
+text-align: left;
+margin-right: 10px;
+padding-top: 0.5em; /* Espacio entre texto y botón */
+font-size: 16px; /* Tamaño del texto */
+}
+
+#logoutButton {
+text-align: center;
+border: none; /* Sin borde */
+padding: 8px 15px; /* Espaciado interno */
+border-radius: 5px; /* Bordes redondeados */
+cursor: pointer; /* Cursor en forma de mano */
+}
+
+#logoutButton:hover {
+background-color: #4CAF50; /* Color al pasar el ratón */
+}
+
+.hidden {
+display: none;
+}
+
+/*----------------------------------------*/
+
+@media only screen and (max-width: 768px) {
+.menu-contenido{
+  padding-left: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.user-details{
+  width: 90%;
+}
+
+.plato{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.plato img{
+  padding-bottom: 2%;
+}
+
+}

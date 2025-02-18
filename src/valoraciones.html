@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Valoraciones y Comentarios</title>
+    <link rel="stylesheet" href="style/valoraciones.css">
+</head>
+<body>
+
+<div class="contenedor-valoraciones">
+    <h1>Deja tu Valoración</h1>
+    <form id="formulario-valoracion">
+        <div class="campo-nombre">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre (opcional)">
+        </div>        
+        <fieldset class="estrellas-valoracion">
+            <legend>Calificación:</legend>
+            <input type="radio" name="estrellas" id="estrella1" value="1">
+            <label for="estrella1" class="estrella">☆</label>
+            <input type="radio" name="estrellas" id="estrella2" value="2">
+            <label for="estrella2" class="estrella">☆</label>
+            <input type="radio" name="estrellas" id="estrella3" value="3">
+            <label for="estrella3" class="estrella">☆</label>
+            <input type="radio" name="estrellas" id="estrella4" value="4">
+            <label for="estrella4" class="estrella">☆</label>
+            <input type="radio" name="estrellas" id="estrella5" value="5">
+            <label for="estrella5" class="estrella">☆</label>
+        </fieldset>
+             
+        <div class="campo-comentario">
+            <label for="comentario">Comentario:</label>
+            <textarea id="comentario" name="comentario" placeholder="Escribe tu comentario aquí..." required></textarea>
+        </div>
+        <button type="submit">Enviar Valoración</button>
+    </form>
+</div>
+
+<div class="contenedor-comentarios">
+    <h2>Comentarios Recientes</h2>
+    <!-- Aquí se mostrarán los comentarios cargados desde el frontend -->
+</div>
+
+<script src="script/valoraciones.js"></script>
+
+</body>
+</html>
+

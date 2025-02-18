@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pago del Pedido</title>
+<link rel="stylesheet" type="text/css" href="style/pago.css">
+<script src="script/pago.js"></script>
+<script src="script/registro.js"></script>
+</head>
+<body>
+
+<div class="contenedor-pago">
+    <h1>Ya solo queda el último paso para disfrutar...</h1>
+
+    <div class="dropdown">
+        <button class="dropbtn" id="profileButton">Perfil</button>
+        <div id="dropdown-content" class="dropdown-content">
+            <button id="loginButton">Login</button>
+            <button id="registerButton">Registro</button>
+            <div id="loginForm" class="dropdown-content-form">
+              <form id="loginFormElement">
+                  <label for="loginEmail">Correo electrónico:</label>
+                  <input type="email" placeholder="Email" id="loginEmail" required>
+                  <label for="loginPassword">Contraseña:</label>
+                  <input type="password" placeholder="Contraseña" id="loginPassword" required>
+                  <input type="submit" value="Iniciar Sesión">
+              </form>
+            </div>
+            <div id="registerForm" class="dropdown-content-form">
+                <form id="registrationForm">
+                    <label for="firstName">Correo electrónico:</label>
+                    <input type="text" placeholder="Nombre" id="firstName" required>
+      
+                    <label for="lastName">Correo electrónico:</label>
+                    <input type="text" placeholder="Apellidos" id="lastName" required>
+      
+                    <label for="email-registro">Correo electrónico:</label>
+                    <input type="email" placeholder="Email" id="email-registro" required>
+      
+                    <label for="password-registro">Correo electrónico:</label>
+                    <input type="password" placeholder="Contraseña" id="password-registro" required>
+      
+                    <label for="confirmPassword-registro">Correo electrónico:</label>
+                    <input type="password" placeholder="Confirmar Contraseña" id="confirmPassword-registro" required>
+      
+                    <input type="submit" value="Registrar">
+                </form>
+            </div>
+            <div id="userDetails" class="user-details hidden">
+              <span id="userName"></span>
+              <span id="userPoints"></span>
+              <button id="logoutButton">Cerrar Sesion</button>
+              
+            </div>
+            <button id="historialPedidos">Historial de pedidos</button>
+            <div id="historialDesplegable" class="hidden"></div>
+        </div>
+      </div>
+    
+    <div class="fila">
+        <div class="columna resumen-pedido">
+            <h2>Resumen del pedido</h2>
+        
+            <label for="tipo-entrega">Tipo de entrega:</label>
+            <select id="tipo-entrega" onchange="cambiarTipoEntrega()">
+                <option value="domicilio">Entrega a Domicilio</option>
+                <option value="restaurante">Recogida en Restaurante</option>
+            </select>
+        
+            <div id="opciones-restaurante" style="display:none;">
+                <label for="seleccion-restaurante">Restaurante:</label>
+                <select id="seleccion-restaurante">
+                    <option value="Las Rozas">Las Rozas</option>
+                    <option value="Las Matas">Las Matas</option>
+                </select>
+            </div>
+        
+            <div id="direccion-domicilio" style="display:none;">
+                <label for="direccion-entrega">Dirección de Entrega:</label>
+                <input type="text" id="direccion-entrega">
+                <label for="cp-entrega">Código Postal:</label>
+                <input type="text" id="cp-entrega">
+                <label for="ciudad-entrega">Ciudad</label>
+                <input type="text" id="ciudad-entrega">
+            </div>
+
+            <button id="boton-aceptar">Aceptar</button>
+            <p id="tiempo-estimado" style="display: none;"><strong>Tiempo Estimado de Entrega:</strong> <span></span></p>
+        
+            <p><strong>Número de pedido:</strong> <span id="numero-pedido"></span></p>
+            <label for="codigo-descuento">Ciudad</label> <input type="text" id="codigo-descuento"></p>
+            <button id="aplicar-descuento">Aplicar</button>
+            <p><strong>Importe:</strong> <span id="importe-total"></span></p>
+        </div>
+        
+        
+        <div class="columna detalles-pago">
+            <h2>Datos de pago</h2>
+            <form id="formulario-pago">
+                <label for="numero-tarjeta">Nº de tarjeta</label>
+                <input type="text" id="numero-tarjeta" required>
+                
+                <label for="nombre-tarjeta">Nombre</label>
+                <input type="text" id="nombre-tarjeta" required>
+
+                <div class="fecha-validez">
+                    <label for="validez-tarjeta-mes">Mes</label>
+                    <input type="text" id="validez-tarjeta-mes" required>
+                    <label for="validez-tarjeta-año">Año</label>
+                    <input type="text" id="validez-tarjeta-año" required>
+                </div>
+                
+                <div class="cvv">
+                    <label for="cvv-tarjeta">CVV</label>
+                    <input type="text" id="cvv-tarjeta" required>
+                </div>
+                <button type="submit">Pagar</button>
+            </form>
+            <h2>¿Tienes 1000 puntos acumulados?</h2>
+            <button id="canjearPedidoGratis" > Canjear pedido gratis</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
